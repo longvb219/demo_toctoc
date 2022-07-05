@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class MessageScreen extends StatelessWidget {
+  const MessageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +13,10 @@ class ProfileScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          '@username',
+          'Message',
           style: TextStyle(
             color: Colors.black,
           ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text(
-                  'Chức năng này hiện đang trong giai đoạn phát triển!!',
-                ),
-                duration: Duration(seconds: 2),
-              ),
-            );
-          },
-          icon: Icon(Icons.person_add_alt_rounded),
         ),
         actions: [
           IconButton(
@@ -43,16 +30,15 @@ class ProfileScreen extends StatelessWidget {
                 ),
               );
             },
-            icon: Icon(Icons.remove_red_eye_outlined),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu),
+            icon: Icon(
+              Icons.add,
+              size: 24,
+            ),
           ),
         ],
       ),
       body: Center(
-        child: Text('Profile screen!'),
+        child: Text('Message screen!'),
       ),
     );
   }

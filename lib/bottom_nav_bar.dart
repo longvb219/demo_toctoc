@@ -6,37 +6,21 @@ import 'package:demo_toctoc/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  BottomNavBar({Key? key}) : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  int selectedIndex = 0;
+  static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     SearchScreen(),
     Scaffold(),
     InboxScreen(),
     ProfileScreen(),
   ];
-
-  Color _bottomNavBarBackgroundPicker() {
-    if (_selectedIndex < 2) {
-      return Colors.grey;
-    } else {
-      return Colors.white;
-    }
-  }
-
-  Color _bottomNavBarSelectedPicker() {
-    if (_selectedIndex < 2) {
-      return Colors.white;
-    } else {
-      return Colors.black;
-    }
-  }
 
   void _onItemTapped(int index) {
     if (index == 2) {
@@ -46,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       );
     } else {
       setState(() {
-        _selectedIndex = index;
+        selectedIndex = index;
       });
     }
   }
@@ -54,41 +38,78 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_box_rounded,
-              color: _bottomNavBarSelectedPicker(),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            border: Border(
+                top: BorderSide(
+                    color: Color.fromRGBO(38, 38, 38, 1), width: 0.8))),
+        child: BottomNavigationBar(
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon:
+                  Icon((selectedIndex == 0) ? Icons.home : Icons.home_outlined),
+              label: 'Home',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.inbox),
-            label: 'Inbox',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        backgroundColor: _bottomNavBarBackgroundPicker(),
-        currentIndex: _selectedIndex,
-        selectedItemColor: _bottomNavBarSelectedPicker(),
-        onTap: _onItemTapped,
+            BottomNavigationBarItem(
+              icon: Icon(
+                  (selectedIndex == 1) ? Icons.search : Icons.search_outlined),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_box_rounded,
+                color: _bottomNavBarSelectedPicker(),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                  (selectedIndex == 3) ? Icons.inbox : Icons.inbox_outlined),
+              label: 'Inbox',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                  (selectedIndex == 4) ? Icons.person : Icons.person_outline),
+              label: 'Profile',
+            ),
+          ],
+          backgroundColor: _bottomNavBarBackgroundPicker(),
+          currentIndex: selectedIndex,
+          selectedItemColor: _bottomNavBarSelectedPicker(),
+          unselectedItemColor: _bottomNavBarUnselectedPicker(),
+          onTap: _onItemTapped,
+        ),
       ),
     );
+  }
+
+  Color _bottomNavBarBackgroundPicker() {
+    if (selectedIndex < 1) {
+      return Colors.transparent;
+    } else {
+      return Colors.white;
+    }
+  }
+
+  Color _bottomNavBarSelectedPicker() {
+    if (selectedIndex < 1) {
+      return Colors.white;
+    } else {
+      return Colors.black;
+    }
+  }
+
+  Color _bottomNavBarUnselectedPicker() {
+    if (selectedIndex < 1) {
+      return Colors.white;
+    } else {
+      return const Color.fromRGBO(138, 139, 143, 1);
+    }
   }
 }
