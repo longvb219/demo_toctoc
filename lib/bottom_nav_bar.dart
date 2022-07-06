@@ -1,7 +1,7 @@
+import 'package:demo_toctoc/friends_screen/friends_screen.dart';
 import 'package:demo_toctoc/home_screen/home_screen.dart';
 import 'package:demo_toctoc/inbox_screen/inbox_screen.dart';
 import 'package:demo_toctoc/profile_screen/profile_screen.dart';
-import 'package:demo_toctoc/search_screen/search_screen.dart';
 import 'package:demo_toctoc/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    SearchScreen(),
+    FriendsScreen(),
     Scaffold(),
     InboxScreen(),
     ProfileScreen(),
@@ -58,8 +58,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                  (selectedIndex == 1) ? Icons.search : Icons.search_outlined),
-              label: 'Search',
+                  (selectedIndex == 1) ? Icons.people : Icons.people_outlined),
+              label: 'Friends',
             ),
             BottomNavigationBarItem(
               icon: Icon(
