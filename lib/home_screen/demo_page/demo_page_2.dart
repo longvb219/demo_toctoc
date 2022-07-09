@@ -1,7 +1,7 @@
-import 'package:demo_toctoc/home_screen/user_button.dart';
+import 'package:demo_toctoc/home_screen/home_user_button.dart';
 import 'package:flutter/material.dart';
 
-import '../user_caption.dart';
+import '../home_user_caption.dart';
 
 class DemoPage2 extends StatelessWidget {
   const DemoPage2({Key? key}) : super(key: key);
@@ -14,8 +14,8 @@ class DemoPage2 extends StatelessWidget {
       body: Stack(
         children: [
           Center(
-            child: Image.network(
-              'https://images.wallpapersden.com/image/download/artistic-landscape-view_bGhlaGmUmZqaraWkpJRmbmdlrWZlbWU.jpg',
+            child: Image.asset(
+              'assets/images/anh_thien_nhien.jpg',
               fit: BoxFit.cover,
             ),
           ),

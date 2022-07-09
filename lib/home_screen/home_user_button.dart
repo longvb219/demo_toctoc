@@ -11,6 +11,8 @@ class UserButton extends StatefulWidget {
 class _UserButtonState extends State<UserButton> {
   bool related = true;
   bool following = false;
+  bool isLiked = false;
+  bool isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +103,31 @@ class _UserButtonState extends State<UserButton> {
                   IconButton(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.favorite,
+                      Icons.account_circle,
                       color: Colors.white,
                       size: 40,
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                      });
+                    },
+                    icon: (isLiked)
+                        ? Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 40,
+                          )
+                        : Icon(
+                            Icons.favorite,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                   ),
                   SizedBox(
                     height: 20,
@@ -121,12 +144,22 @@ class _UserButtonState extends State<UserButton> {
                     height: 20,
                   ),
                   IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.dashboard_customize,
-                      color: Colors.white,
-                      size: 40,
-                    ),
+                    onPressed: () {
+                      setState(() {
+                        isFavorited = !isFavorited;
+                      });
+                    },
+                    icon: (isFavorited)
+                        ? Icon(
+                            Icons.dashboard_customize,
+                            color: Colors.yellow,
+                            size: 40,
+                          )
+                        : Icon(
+                            Icons.dashboard_customize,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                   ),
                   SizedBox(
                     height: 20,
