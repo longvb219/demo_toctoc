@@ -63,7 +63,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.add_box_rounded,
+                Icons.add_circle,
                 color: _bottomNavBarSelectedPicker(),
               ),
               label: '',

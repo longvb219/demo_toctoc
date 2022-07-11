@@ -16,6 +16,7 @@ class VideoScreen extends StatelessWidget {
           ),
         );
       },
+      splashColor: Colors.transparent,
       child: Center(
         child: Image.asset(
           // child ở phía trong Center sẽ là video, bất kể độ phân giải.

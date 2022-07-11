@@ -1,4 +1,4 @@
-import 'package:demo_toctoc/home_screen/home_user_button_2.dart';
+import 'package:demo_toctoc/home_screen/home_user_button.dart';
 import 'package:flutter/material.dart';
 
 import '../home_user_caption.dart';
@@ -15,7 +15,7 @@ class DemoPage1 extends StatelessWidget {
       body: Stack(
         children: [
           VideoScreen(),
-          UserButton2(),
+          UserButton(),
           UserCaption(),
         ],
       ),

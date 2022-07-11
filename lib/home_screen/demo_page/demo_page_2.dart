@@ -15,7 +15,7 @@ class DemoPage2 extends StatelessWidget {
         children: [
           Center(
             child: Image.asset(
-              'assets/images/anh_thien_nhien.jpg',
+              'assets/images/anh_thien_nhien_2.jpg',
               fit: BoxFit.cover,
             ),
           ),

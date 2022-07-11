@@ -32,7 +32,16 @@ class InboxScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text('Inbox screen!'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('Inbox screen!'),
+            SizedBox(
+              height: 20,
+            ),
+            Text('Chức năng này hiện đang trong giai đoạn phát triển!'),
+          ],
+        ),
       ),
     );
   }
