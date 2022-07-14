@@ -6,6 +6,16 @@ class VideoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Paused!',
+            ),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      },
       onDoubleTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(

@@ -1,8 +1,8 @@
-import 'package:demo_toctoc/friends_screen/friends_screen.dart';
-import 'package:demo_toctoc/home_screen/home_screen.dart';
-import 'package:demo_toctoc/inbox_screen/inbox_screen.dart';
-import 'package:demo_toctoc/profile_screen/profile_screen.dart';
-import 'package:demo_toctoc/upload_screen/upload_screen.dart';
+import 'package:demo_toctoc/presentation/friends_screen/friends_screen.dart';
+import 'package:demo_toctoc/presentation/home_screen/home_screen.dart';
+import 'package:demo_toctoc/presentation/inbox_screen/inbox_screen.dart';
+import 'package:demo_toctoc/presentation/profile_screen/profile_screen.dart';
+import 'package:demo_toctoc/presentation/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {

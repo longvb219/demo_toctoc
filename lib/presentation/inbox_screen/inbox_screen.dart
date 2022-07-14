@@ -1,4 +1,4 @@
-import 'package:demo_toctoc/inbox_screen/message_screen/message_screen.dart';
+import 'package:demo_toctoc/presentation/inbox_screen/message_screen/message_screen.dart';
 import 'package:flutter/material.dart';
 
 class InboxScreen extends StatelessWidget {

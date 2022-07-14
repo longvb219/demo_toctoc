@@ -1,4 +1,5 @@
-import 'package:demo_toctoc/styles.dart';
+import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_screen.dart';
+import 'package:demo_toctoc/resources/styles.dart';
 import 'package:flutter/material.dart';
 
 class UserButton extends StatefulWidget {
@@ -51,7 +52,7 @@ class _UserButtonState extends State<UserButton> {
                     );
                   },
                   icon: Icon(
-                    Icons.tv,
+                    Icons.connected_tv,
                     size: 30,
                     color: Colors.white,
                   ),
@@ -126,32 +127,43 @@ class _UserButtonState extends State<UserButton> {
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            clipBehavior: Clip.hardEdge,
-                            height: 48,
-                            width: 48,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(50),
-                              ),
-                              border: Border.all(
-                                width: 2,
-                                color: Colors.white,
-                                style: BorderStyle.solid,
-                              ),
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.white,
+                              style: BorderStyle.solid,
                             ),
-                            child: Image.network(
-                              'https://byuc.files.wordpress.com/2012/07/avat-2.jpg',
-                              fit: BoxFit.contain,
+                          ),
+                          child: Container(
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          OtherProfileScreen()),
+                                );
+                              },
+                              child: Image.network(
+                                'https://byuc.files.wordpress.com/2012/07/avat-2.jpg',
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 24,
-                          child: IconButton(
-                            onPressed: () {
+                          bottom: -8,
+                          left: 14,
+                          child: InkWell(
+                            onTap: () {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text(
@@ -161,10 +173,24 @@ class _UserButtonState extends State<UserButton> {
                                 ),
                               );
                             },
-                            icon: const Icon(
-                              Icons.add_circle,
-                              color: Color.fromRGBO(234, 67, 89, 1),
-                              size: 20,
+                            child: Container(
+                              height: 20,
+                              width: 20,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.red,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '+',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -246,12 +272,12 @@ class _UserButtonState extends State<UserButton> {
                     },
                     icon: (isFavorited)
                         ? Icon(
-                            Icons.dashboard_customize,
+                            Icons.bookmark,
                             color: Colors.yellow,
                             size: 40,
                           )
                         : Icon(
-                            Icons.dashboard_customize,
+                            Icons.bookmark,
                             color: Colors.white,
                             size: 40,
                           ),
