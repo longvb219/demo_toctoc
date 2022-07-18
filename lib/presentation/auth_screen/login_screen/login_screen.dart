@@ -48,6 +48,28 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20,
+            ),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                color: Color.fromRGBO(240, 240, 240, 1),
+                height: 56,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Icon(Icons.g_mobiledata),
+                    ),
+                    Text('Log in with Google'),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: Container(
