@@ -12,12 +12,20 @@ class DemoPage1 extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          VideoScreen(),
-          UserButton(),
-          UserCaption(),
-        ],
+      body: GestureDetector(
+        // onHorizontalDragEnd: (DragEndDetails details) {
+        //   Navigator.push(
+        //     context,
+        //     MaterialPageRoute(builder: (context) => OtherProfileScreen()),
+        //   );
+        // },
+        child: Stack(
+          children: [
+            VideoScreen(),
+            UserButton(),
+            UserCaption(),
+          ],
+        ),
       ),
     );
   }

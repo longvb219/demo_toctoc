@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../other_profile_screen/other_profile_screen.dart';
+
 class UserCaption extends StatelessWidget {
   String username = '@username';
   String caption = 'This is a  sdjhfgasjhdgsjdsakjdhsakd caption.';
@@ -28,13 +30,10 @@ class UserCaption extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Đi tới trang cá nhân!',
-                          ),
-                          duration: Duration(seconds: 2),
-                        ),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OtherProfileScreen()),
                       );
                     },
                     child: Text(

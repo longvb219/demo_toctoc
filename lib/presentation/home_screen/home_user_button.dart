@@ -1,5 +1,4 @@
 import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_screen.dart';
-import 'package:demo_toctoc/resources/styles.dart';
 import 'package:flutter/material.dart';
 
 class UserButton extends StatefulWidget {
@@ -35,83 +34,6 @@ class _UserButtonState extends State<UserButton> {
     return SafeArea(
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Chức năng này hiện đang trong giai đoạn phát triển!!',
-                        ),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
-                  },
-                  icon: Icon(
-                    Icons.connected_tv,
-                    size: 30,
-                    color: Colors.white,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          following = true;
-                          related = false;
-                        });
-                      },
-                      child: Text(
-                        'Following',
-                        textAlign: TextAlign.end,
-                        style: homeTopFocus(following),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(
-                      width: 2,
-                      height: 20,
-                      child: Container(
-                        color: Color.fromRGBO(255, 255, 255, 0.2),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          following = false;
-                          related = true;
-                        });
-                      },
-                      child: Text(
-                        'Related',
-                        textAlign: TextAlign.start,
-                        style: homeTopFocus(related),
-                      ),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.search,
-                    size: 30,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
           Align(
             alignment: AlignmentDirectional.bottomEnd,
             child: Padding(

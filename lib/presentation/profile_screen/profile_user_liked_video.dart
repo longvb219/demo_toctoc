@@ -10,7 +10,7 @@ class UserLikedVideo extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(1.0),

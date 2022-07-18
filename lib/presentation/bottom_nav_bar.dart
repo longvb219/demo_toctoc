@@ -3,6 +3,7 @@ import 'package:demo_toctoc/presentation/home_screen/home_screen.dart';
 import 'package:demo_toctoc/presentation/inbox_screen/inbox_screen.dart';
 import 'package:demo_toctoc/presentation/profile_screen/profile_screen.dart';
 import 'package:demo_toctoc/presentation/upload_screen/upload_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -13,6 +14,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  final user = FirebaseAuth.instance.currentUser!;
   int selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),

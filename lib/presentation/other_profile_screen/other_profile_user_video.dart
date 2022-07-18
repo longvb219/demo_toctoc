@@ -6,11 +6,11 @@ class OtherUserVideo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: 8,
+      itemCount: 21,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(1.0),
