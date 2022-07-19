@@ -1,7 +1,10 @@
 import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_favorite_video.dart';
 import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_user_information.dart';
 import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_user_video.dart';
+import 'package:demo_toctoc/resources/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../resources/colors.dart';
 
 class OtherProfileScreen extends StatefulWidget {
   OtherProfileScreen({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class OtherProfileScreen extends StatefulWidget {
 }
 
 class _OtherProfileScreenState extends State<OtherProfileScreen> {
+  var profileStyle = ProfileStyle();
   String userName = 'other_username';
 
   @override
@@ -20,16 +24,14 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(
-            color: Colors.black,
+          backgroundColor: white,
+          iconTheme: const IconThemeData(
+            color: black,
           ),
           centerTitle: true,
           title: Text(
             userName,
-            style: TextStyle(
-              color: Colors.black,
-            ),
+            style: profileStyle.usernameSwitch,
           ),
           actions: [
             IconButton(
@@ -43,11 +45,11 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                   ),
                 );
               },
-              icon: Icon(Icons.notifications_outlined),
+              icon: const Icon(Icons.notifications_outlined),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.more_vert),
+              icon: const Icon(Icons.more_vert),
             ),
           ],
         ),
@@ -60,20 +62,20 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
             ];
           },
           body: Column(
-            children: [
+            children: const [
               TabBar(
                 tabs: [
                   Tab(
                     icon: Icon(
                       Icons.grid_3x3,
-                      color: Colors.black,
+                      color: black,
                       size: 24,
                     ),
                   ),
                   Tab(
                     icon: Icon(
                       Icons.favorite_border,
-                      color: Colors.black,
+                      color: black,
                       size: 24,
                     ),
                   ),

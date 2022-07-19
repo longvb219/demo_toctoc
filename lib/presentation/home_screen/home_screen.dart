@@ -2,7 +2,13 @@ import 'package:demo_toctoc/presentation/home_screen/home_screen_following.dart'
 import 'package:demo_toctoc/presentation/home_screen/home_screen_related.dart';
 import 'package:flutter/material.dart';
 
+import '../../resources/colors.dart';
+import '../../resources/styles.dart';
+
 class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
+  var homeStyle = HomeStyle();
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -25,47 +31,43 @@ class HomeScreen extends StatelessWidget {
                 ),
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.connected_tv,
               size: 30,
-              color: Colors.white,
+              color: white,
             ),
           ),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.search,
                 size: 30,
-                color: Colors.white,
+                color: white,
               ),
             ),
           ],
-          title: const TabBar(
-            labelColor: Color.fromRGBO(255, 255, 255, 1),
-            unselectedLabelColor: Color.fromRGBO(255, 255, 255, 0.6),
-            indicatorColor: Colors.white,
+          title: TabBar(
+            labelColor: white,
+            unselectedLabelColor: lightWhite,
+            indicatorColor: white,
             tabs: [
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   vertical: 8,
                 ),
                 child: Text(
                   'Following',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
+                  style: homeStyle.tabBar,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   vertical: 8,
                 ),
                 child: Text(
                   'Related',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
+                  style: homeStyle.tabBar,
                 ),
               ),
             ],

@@ -1,3 +1,5 @@
+import 'package:demo_toctoc/resources/colors.dart';
+import 'package:demo_toctoc/resources/styles.dart';
 import 'package:flutter/material.dart';
 
 class OtherUserInformation extends StatefulWidget {
@@ -8,6 +10,8 @@ class OtherUserInformation extends StatefulWidget {
 }
 
 class _OtherUserInformationState extends State<OtherUserInformation> {
+  var profileStyle = ProfileStyle();
+
   String userName = 'other_username';
 
   String userDescription = 'ABC Entertainment. 5-year contract.\nGood.\nBad.';
@@ -42,8 +46,7 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
             clipBehavior: Clip.antiAlias,
             width: 96,
             height: 96,
-            decoration: BoxDecoration(
-              color: Colors.grey,
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(50),
               ),
@@ -62,10 +65,7 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
             onTap: () {},
             child: Text(
               '@$userName',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
+              style: profileStyle.username,
             ),
           ),
         ),
@@ -75,87 +75,66 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 96,
               child: Column(
                 children: [
                   Text(
-                    '${numberRender(numFollowing)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    numberRender(numFollowing),
+                    style: profileStyle.reactionNumber,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
                   Text(
                     'Following',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromRGBO(134, 135, 139, 1),
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: profileStyle.reactionLabel,
                   ),
                 ],
               ),
             ),
             Container(
-              color: Color.fromRGBO(134, 135, 139, 1),
+              color: profileInteractLabel,
               width: 1,
               height: 18,
             ),
-            Container(
+            SizedBox(
               width: 96,
               child: Column(
                 children: [
                   Text(
-                    '${numberRender(numFollower)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    numberRender(numFollower),
+                    style: profileStyle.reactionNumber,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
                   Text(
                     'Followers',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromRGBO(134, 135, 139, 1),
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: profileStyle.reactionLabel,
                   ),
                 ],
               ),
             ),
             Container(
-              color: Color.fromRGBO(134, 135, 139, 1),
+              color: profileInteractLabel,
               width: 1,
               height: 18,
             ),
-            Container(
+            SizedBox(
               width: 96,
               child: Column(
                 children: [
                   Text(
-                    '${numberRender(numLiked)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    numberRender(numLiked),
+                    style: profileStyle.reactionNumber,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
                   Text(
                     'Liked',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromRGBO(134, 135, 139, 1),
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: profileStyle.reactionLabel,
                   ),
                 ],
               ),
@@ -172,20 +151,17 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                      child: Text(
-                        'Send message',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 30),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromRGBO(227, 227, 228, 1),
+                          color: buttonBorder,
                         ),
                         borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        'Send message',
+                        style: profileStyle.buttonText,
                       ),
                     ),
                   ),
@@ -199,16 +175,16 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
                       });
                     },
                     child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.check_circle_outline,
-                        size: 32,
-                      ),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromRGBO(227, 227, 228, 1),
+                          color: buttonBorder,
                         ),
                         borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Icon(
+                        Icons.check_circle_outline,
+                        size: 32,
                       ),
                     ),
                   ),
@@ -218,16 +194,16 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.arrow_drop_down_sharp,
-                        size: 32,
-                      ),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromRGBO(227, 227, 228, 1),
+                          color: buttonBorder,
                         ),
                         borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_drop_down_sharp,
+                        size: 32,
                       ),
                     ),
                   ),
@@ -243,22 +219,18 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
                       });
                     },
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 60),
-                      child: Text(
-                        'Follow',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 60),
                       decoration: BoxDecoration(
                         color: Colors.red,
                         border: Border.all(
-                          color: Color.fromRGBO(227, 227, 228, 1),
+                          color: buttonBorder,
                         ),
                         borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        'Follow',
+                        style: profileStyle.buttonText,
                       ),
                     ),
                   ),
@@ -268,16 +240,16 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.arrow_drop_down_sharp,
-                        size: 32,
-                      ),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromRGBO(227, 227, 228, 1),
+                          color: buttonBorder,
                         ),
                         borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_drop_down_sharp,
+                        size: 32,
                       ),
                     ),
                   ),
@@ -290,9 +262,7 @@ class _OtherUserInformationState extends State<OtherUserInformation> {
           child: Text(
             userDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-            ),
+            style: profileStyle.userDescription,
           ),
         ),
         const SizedBox(

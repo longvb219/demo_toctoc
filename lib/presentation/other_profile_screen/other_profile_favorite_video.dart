@@ -9,6 +9,7 @@ class OtherUserFavoriteVideo extends StatelessWidget {
       itemCount: 28,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
+        childAspectRatio: 2 / 3,
       ),
       shrinkWrap: true,
       itemBuilder: (context, index) {

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class UserPrivateVideo extends StatelessWidget {
-  const UserPrivateVideo({Key? key}) : super(key: key);
+  UserPrivateVideo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: 5,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
+        childAspectRatio: 2 / 3,
       ),
       shrinkWrap: true,
       itemBuilder: (context, index) {

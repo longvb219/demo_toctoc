@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class UserFavoriteVideo extends StatelessWidget {
-  const UserFavoriteVideo({Key? key}) : super(key: key);
+  UserFavoriteVideo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: 11,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
+        childAspectRatio: 2 / 3,
       ),
       shrinkWrap: true,
       itemBuilder: (context, index) {

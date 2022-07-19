@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/colors.dart';
+import '../../resources/styles.dart';
 import '../other_profile_screen/other_profile_screen.dart';
 
 class UserCaption extends StatelessWidget {
+  UserCaption({Key? key}) : super(key: key);
+  var homeStyle = HomeStyle();
+
   String username = '@username';
   String caption = 'This is a  sdjhfgasjhdgsjdsakjdhsakd caption.';
   List hashtag = <String>[
@@ -22,7 +27,7 @@ class UserCaption extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
+            SizedBox(
               // color: Colors.orange,
               width: 250,
               child: Column(
@@ -38,14 +43,10 @@ class UserCaption extends StatelessWidget {
                     },
                     child: Text(
                       username,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 16,
-                      ),
+                      style: homeStyle.username,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   RichText(
@@ -55,23 +56,16 @@ class UserCaption extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: caption,
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.6),
-                            fontSize: 14,
-                          ),
+                          style: homeStyle.caption,
                         ),
                         TextSpan(
                           text: ' ${hashtag.join(' ')}',
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: homeStyle.hashtag,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                 ],
@@ -92,11 +86,11 @@ class UserCaption extends StatelessWidget {
                 },
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.my_library_music,
-                      color: Colors.white,
+                      color: white,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     Expanded(
@@ -104,10 +98,7 @@ class UserCaption extends StatelessWidget {
                         'Sound - This is the sound from ABCD.',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: 14,
-                        ),
+                        style: homeStyle.sound,
                       ),
                     ),
                   ],

@@ -1,6 +1,9 @@
 import 'package:demo_toctoc/main.dart';
+import 'package:demo_toctoc/resources/styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../../resources/colors.dart';
 
 class SignupEmailScreen extends StatefulWidget {
   SignupEmailScreen({Key? key}) : super(key: key);
@@ -10,6 +13,8 @@ class SignupEmailScreen extends StatefulWidget {
 }
 
 class _SignupEmailScreenState extends State<SignupEmailScreen> {
+  var loginSignupStyle = LoginSignupStyle();
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -26,44 +31,42 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black,
+        iconTheme: const IconThemeData(
+          color: black,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: white,
         centerTitle: true,
         title: Text(
           'Sign Up',
-          style: TextStyle(
-            color: Colors.black,
-          ),
+          style: loginSignupStyle.title,
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             TextField(
               controller: emailController,
               textInputAction: TextInputAction.next,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Email',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: passwordController,
               textInputAction: TextInputAction.done,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Password',
               ),
               obscureText: true,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             InkWell(
@@ -79,15 +82,11 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
               },
               child: Container(
                 height: 50,
-                color: Color.fromRGBO(241, 11, 66, 1),
+                color: logButtonReady,
                 child: Center(
                   child: Text(
                     'Sign Up',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: loginSignupStyle.loginSignupButton,
                   ),
                 ),
               ),

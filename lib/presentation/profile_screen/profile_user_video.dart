@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 
 class UserVideo extends StatelessWidget {
   UserVideo({Key? key}) : super(key: key);
-  int userVideoCount = 7;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: userVideoCount,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      itemCount: 8,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: MediaQuery.of(context).size.width /
-            ((MediaQuery.of(context).size.width * 1.5)),
+        childAspectRatio: 2 / 3,
       ),
       shrinkWrap: true,
       itemBuilder: (context, index) {

@@ -1,9 +1,13 @@
 import 'package:demo_toctoc/presentation/auth_screen/login_screen/login_email_screen.dart';
 import 'package:demo_toctoc/presentation/auth_screen/signup_screen/signup_screen.dart';
+import 'package:demo_toctoc/resources/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../resources/styles.dart';
+
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
+  var loginSignupStyle = LoginSignupStyle();
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(0, 120, 0, 80),
               child: Text(
                 'Log in TocToc',
-                style: TextStyle(
-                  fontSize: 40,
-                ),
+                style: loginSignupStyle.bigTitle,
               ),
             ),
           ),
@@ -34,15 +36,18 @@ class LoginScreen extends StatelessWidget {
                 );
               },
               child: Container(
-                color: Color.fromRGBO(240, 240, 240, 1),
+                color: logButtonOption,
                 height: 56,
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Icon(Icons.email),
                     ),
-                    Text('Log in with Email'),
+                    Text(
+                      'Log in with Email',
+                      style: loginSignupStyle.buttonText,
+                    ),
                   ],
                 ),
               ),
@@ -56,15 +61,18 @@ class LoginScreen extends StatelessWidget {
             child: InkWell(
               onTap: () {},
               child: Container(
-                color: Color.fromRGBO(240, 240, 240, 1),
+                color: logButtonOption,
                 height: 56,
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Icon(Icons.g_mobiledata),
                     ),
-                    Text('Log in with Google'),
+                    Text(
+                      'Log in with Google',
+                      style: loginSignupStyle.buttonText,
+                    ),
                   ],
                 ),
               ),
@@ -75,14 +83,15 @@ class LoginScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         height: 60,
         width: double.infinity,
-        color: Color.fromRGBO(240, 240, 240, 1),
+        color: logButtonOption,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'No account?',
+              style: loginSignupStyle.bottomText,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             InkWell(
@@ -94,9 +103,7 @@ class LoginScreen extends StatelessWidget {
               },
               child: Text(
                 'Sign up',
-                style: TextStyle(
-                  color: Color.fromRGBO(241, 11, 66, 1),
-                ),
+                style: loginSignupStyle.bottomTextClick,
               ),
             ),
           ],

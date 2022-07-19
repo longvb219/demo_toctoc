@@ -3,6 +3,7 @@ import 'package:demo_toctoc/presentation/home_screen/home_screen.dart';
 import 'package:demo_toctoc/presentation/inbox_screen/inbox_screen.dart';
 import 'package:demo_toctoc/presentation/profile_screen/profile_screen.dart';
 import 'package:demo_toctoc/presentation/upload_screen/upload_screen.dart';
+import 'package:demo_toctoc/resources/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   final user = FirebaseAuth.instance.currentUser!;
   int selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     FriendsScreen(),
     Scaffold(),
@@ -45,13 +46,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: _widgetOptions.elementAt(selectedIndex),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            border: Border(
-                top: BorderSide(
-                    color: Color.fromRGBO(38, 38, 38, 1), width: 0.8))),
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: navBarBorder,
+              width: 0.8,
+            ),
+          ),
+        ),
         child: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,
+          backgroundColor: _bottomNavBarBackgroundPicker(),
+          currentIndex: selectedIndex,
+          selectedItemColor: _bottomNavBarSelectedPicker(),
+          unselectedItemColor: _bottomNavBarUnselectedPicker(),
+          onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon:
@@ -81,11 +91,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
               label: 'Profile',
             ),
           ],
-          backgroundColor: _bottomNavBarBackgroundPicker(),
-          currentIndex: selectedIndex,
-          selectedItemColor: _bottomNavBarSelectedPicker(),
-          unselectedItemColor: _bottomNavBarUnselectedPicker(),
-          onTap: _onItemTapped,
         ),
       ),
     );
@@ -93,25 +98,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   Color _bottomNavBarBackgroundPicker() {
     if (selectedIndex < 1) {
-      return Colors.transparent;
+      return transparent;
     } else {
-      return Colors.white;
+      return white;
     }
   }
 
   Color _bottomNavBarSelectedPicker() {
     if (selectedIndex < 1) {
-      return Colors.white;
+      return white;
     } else {
-      return Colors.black;
+      return black;
     }
   }
 
   Color _bottomNavBarUnselectedPicker() {
     if (selectedIndex < 1) {
-      return Colors.white;
+      return white;
     } else {
-      return const Color.fromRGBO(138, 139, 143, 1);
+      return bottomNavBarUnselected;
     }
   }
 }

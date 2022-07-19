@@ -1,5 +1,8 @@
 import 'package:demo_toctoc/presentation/other_profile_screen/other_profile_screen.dart';
+import 'package:demo_toctoc/resources/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../resources/styles.dart';
 
 class UserButton extends StatefulWidget {
   const UserButton({Key? key}) : super(key: key);
@@ -9,6 +12,8 @@ class UserButton extends StatefulWidget {
 }
 
 class _UserButtonState extends State<UserButton> {
+  var homeStyle = HomeStyle();
+
   bool related = true;
   bool following = false;
   bool isLiked = false;
@@ -56,13 +61,13 @@ class _UserButtonState extends State<UserButton> {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: Colors.white,
+                              color: white,
                               style: BorderStyle.solid,
                             ),
                           ),
                           child: Container(
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: InkWell(
@@ -99,15 +104,15 @@ class _UserButtonState extends State<UserButton> {
                               height: 20,
                               width: 20,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Colors.red,
+                                color: followButton,
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   '+',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -119,7 +124,7 @@ class _UserButtonState extends State<UserButton> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   IconButton(
@@ -129,18 +134,18 @@ class _UserButtonState extends State<UserButton> {
                       });
                     },
                     icon: (isLiked)
-                        ? Icon(
+                        ? const Icon(
                             Icons.favorite,
-                            color: Colors.red,
+                            color: favorite,
                             size: 40,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.favorite,
-                            color: Colors.white,
+                            color: white,
                             size: 40,
                           ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   Padding(
@@ -150,24 +155,21 @@ class _UserButtonState extends State<UserButton> {
                     child: Text(
                       numberRender(numLiked),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                      style: homeStyle.reactionNumber,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.chat_bubble,
-                      color: Colors.white,
+                      color: white,
                       size: 40,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   Padding(
@@ -177,13 +179,10 @@ class _UserButtonState extends State<UserButton> {
                     child: Text(
                       numberRender(numComment),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                      style: homeStyle.reactionNumber,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   IconButton(
@@ -193,18 +192,18 @@ class _UserButtonState extends State<UserButton> {
                       });
                     },
                     icon: (isFavorited)
-                        ? Icon(
+                        ? const Icon(
                             Icons.bookmark,
-                            color: Colors.yellow,
+                            color: bookmark,
                             size: 40,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.bookmark,
-                            color: Colors.white,
+                            color: white,
                             size: 40,
                           ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   Padding(
@@ -214,24 +213,21 @@ class _UserButtonState extends State<UserButton> {
                     child: Text(
                       numberRender(numFavorited),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                      style: homeStyle.reactionNumber,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.share,
-                      color: Colors.white,
+                      color: white,
                       size: 40,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   Padding(
@@ -241,20 +237,17 @@ class _UserButtonState extends State<UserButton> {
                     child: Text(
                       numberRender(numShared),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                      style: homeStyle.reactionNumber,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.disc_full,
-                      color: Colors.white,
+                      color: white,
                       size: 40,
                     ),
                   ),
